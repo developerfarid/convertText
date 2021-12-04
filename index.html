@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Convert Text And Copy</title>
+    <style>
+      input {
+        padding: 5px 15px;
+        font-size: 20px;
+        width: 100%;
+        box-sizing: border-box;
+        margin-top: 15px;
+      }
+      .div {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        width: 50%;
+        margin: auto;
+        box-sizing: border-box;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="div">
+      <input id="text" type="text" placeholder="Paste text here" />
+      <input type="submit" id="ok" value="Convert" />
+
+      <input type="text" id="p" />
+
+      <input type="button" id="copy" value="Copy" />
+      <p>
+        Developed by
+        <a href="https://www.facebook.com/mdfarid.hossain.9003/"
+          >Md. Farid Hossain Jibon</a
+        >
+      </p>
+    </div>
+
+    <script>
+      document.getElementById("ok").addEventListener("click", (e) => {
+        e.preventDefault();
+        const textId = document.getElementById("text");
+        const text = textId.value;
+        textId.value = "";
+        const newText = text.replace(/ /g, "_");
+        document.getElementById("p").value = newText;
+      });
+      document.getElementById("copy").addEventListener("click", () => {
+        const copyText = document.getElementById("p");
+        copyText.select();
+        document.execCommand("copy");
+        copyText.setSelectionRange(0, 99999);
+      });
+    </script>
+  </body>
+</html>
