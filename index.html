@@ -33,11 +33,10 @@
   <body>
     <div class="div">
       <input id="text" type="text" placeholder="Paste text here" />
-      <input type="submit" id="ok" value="Convert" />
+      <input type="submit" id="ok" value="Click me for Convert and Copy! " />
 
       <input type="text" id="p" />
 
-      <input type="button" id="copy" value="Copy" />
       <p>
         Developed by
         <a href="https://www.facebook.com/mdfarid.hossain.9003/"
@@ -53,9 +52,8 @@
         const text = textId.value;
         textId.value = "";
         const newText = text.replace(/ /g, "_");
+
         document.getElementById("p").value = newText;
-      });
-      document.getElementById("copy").addEventListener("click", () => {
         const copyText = document.getElementById("p");
         copyText.select();
         document.execCommand("copy");
